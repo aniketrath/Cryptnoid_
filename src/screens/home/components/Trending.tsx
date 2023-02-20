@@ -1,11 +1,15 @@
 import {Box, Text, Button} from '../../../components/root/index'
 import TrendingCards from './COINcards'
 import NFTcards from './NFTcards'
-import {useTrendingCoins, All_Coins} from '../../../hooks'
+import {useTrendingCoins} from '../../../hooks'
+import {useNavigate} from 'react-router-dom'
 
 
 const Trending = () => {
-    All_Coins()
+    const navigate = useNavigate()
+    function viewAll() {
+        navigate("/home/AllCoins");
+    }
     const trending_coins = useTrendingCoins()
 
     return (<Box className='py-6'>
@@ -26,7 +30,8 @@ const Trending = () => {
             })
         } </Box>
         <Box className='w-64'>
-            <Button className='bg-neutral-800 px-4 py-3 text-slate-200 text-xl mx-8 my-4 rounded-2xl'>
+            <Button onClick={viewAll}
+                className='bg-neutral-800 px-4 py-3 text-slate-200 text-xl mx-8 my-4 rounded-2xl'>
                 View All Coins
             </Button>
         </Box>
