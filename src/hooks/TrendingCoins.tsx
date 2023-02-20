@@ -20,11 +20,8 @@ function TrendingCoins() {
                 const item = element.item
                 return {thumbnail: item.large, name: item.name, symbol: item.symbol, price: item.price_btc}
             })
-
             setData(items);
-
         } catch (err) {
-
             console.error(err);
         }
     };

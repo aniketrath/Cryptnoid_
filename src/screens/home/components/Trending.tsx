@@ -1,11 +1,11 @@
 import {Box, Text, Button} from '../../../components/root/index'
-import TrendingCards from './TrendingCards'
+import TrendingCards from './COINcards'
 import NFTcards from './NFTcards'
-import {useTrendingCoins} from '../../../hooks'
+import {useTrendingCoins, All_Coins} from '../../../hooks'
 
 
 const Trending = () => {
-
+    All_Coins()
     const trending_coins = useTrendingCoins()
 
     return (<Box className='py-6'>
