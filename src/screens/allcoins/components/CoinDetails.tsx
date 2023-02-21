@@ -15,7 +15,6 @@ interface CoinDetail {
     price_change: number,
     perc_price_change: number,
     day_market_cap_change: number
-
 }
 
 const CoinDetails = ({
@@ -45,7 +44,7 @@ const CoinDetails = ({
         className='text-left'>
         <Box>
             <Box className={
-                `bg-neutral-800 rounded-xl w-fit py-4 ${
+                `bg-neutral-800 rounded-xl  py-4 w-[330px] ${
                     expand ? '' : 'overflow-y-hidden h-[210px]'
                 }`
             }>

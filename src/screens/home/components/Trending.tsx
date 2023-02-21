@@ -1,18 +1,16 @@
 import {Box, Text, Button} from '../../../components/root/index'
 import TrendingCards from './COINcards'
 import NFTcards from './NFTcards'
-import {useTrendingCoins} from '../../../hooks'
+import {useTrendingCoins, ETH_data} from '../../../hooks'
 import {useNavigate} from 'react-router-dom'
-import TrendingNFts_ETH from '../../../hooks/TrendingNFts_ETH'
-
 
 const Trending = () => {
-    TrendingNFts_ETH()
     const navigate = useNavigate()
     function viewAll() {
         navigate("/home/AllCoins");
     }
     const trending_coins = useTrendingCoins()
+    const ethereum_list = ETH_data()
 
     return (<Box className='py-6'>
         <Text className="text-slate-200 text-3xl px-8 py-4">Trending Cryptos :</Text>
@@ -38,9 +36,20 @@ const Trending = () => {
             </Button>
         </Box>
         <Text className="text-slate-200 text-3xl px-8 py-4">Top NFTs [ ETH ] :</Text>
-        <Box horizontal className='no-scrollbar overflow-x-scroll scrollbar-hide gap-10 px-8'>
-            <NFTcards/>
-        </Box>
+        <Box horizontal className='no-scrollbar overflow-x-scroll scrollbar-hide gap-10 px-8'> {
+            ethereum_list.map((nft, i) => {
+                return <NFTcards key={i}
+                    name={
+                        nft.name
+                    }
+                    floor_price={
+                        nft.usd_price
+                    }
+                    image={
+                        nft.image
+                    }/>
+            })
+        } </Box>
         <Box className='w-64'>
             <Button className='bg-neutral-800 px-4 py-3 text-slate-200 text-xl mx-8 my-4 rounded-2xl'>
                 View More
