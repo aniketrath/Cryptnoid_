@@ -6,12 +6,12 @@ import CoinDetails from './components/CoinDetails'
 
 const AllCoins = () => {
     const coin_list = All_Coins()
-    return (<Box>
+    return (<Box className=''>
         <Navbar/>
         <Box className='px-10 my-2'>
             <Text className='text-slate-200 text-3xl'>All Coins :</Text>
         </Box>
-        <Box className='px-10 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4'> {
+        <Box className='px-14 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4'> {
             coin_list.map((ele) => {
                 return <CoinDetails key={
                         ele.id

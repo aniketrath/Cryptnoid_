@@ -3,9 +3,11 @@ import TrendingCards from './COINcards'
 import NFTcards from './NFTcards'
 import {useTrendingCoins} from '../../../hooks'
 import {useNavigate} from 'react-router-dom'
+import TrendingNFts_ETH from '../../../hooks/TrendingNFts_ETH'
 
 
 const Trending = () => {
+    TrendingNFts_ETH()
     const navigate = useNavigate()
     function viewAll() {
         navigate("/home/AllCoins");

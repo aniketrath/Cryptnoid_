@@ -1,5 +1,5 @@
-import React from 'react'
-import {Box, Text, Image} from '../../../components/root/index'
+import React, {useState} from 'react'
+import {Box, Text, Image, Button} from '../../../components/root/index'
 
 interface CoinDetail {
     id: string,
@@ -33,35 +33,50 @@ const CoinDetails = ({
     perc_price_change,
     day_market_cap_change
 } : CoinDetail) => {
-    return (<Box>
-        <Box className='bg-neutral-800 rounded-xl w-[310px] py-4 '>
-            <Box horizontal className='px-4 '>
-                <Box className='w-1/2 px-8'>
-                    <Box className='w-20 rounded-full overflow-hidden'>
-                        <Image src={image}/>
+
+    const [expand, setExpand] = useState(false)
+
+    function checkExpand() {
+        setExpand(!expand)
+    }
+
+
+    return (<Button onClick={checkExpand}
+        className='text-left'>
+        <Box>
+            <Box className={
+                `bg-neutral-800 rounded-xl w-fit py-4 ${
+                    expand ? '' : 'overflow-y-hidden h-[210px]'
+                }`
+            }>
+                <Box horizontal className='px-4 '>
+                    <Box className='w-1/3 px-8'>
+                        <Box className='w-16 rounded-full overflow-hidden'>
+                            <Image src={image}/>
+                        </Box>
                     </Box>
+                    <Text className='text-slate-200 text-2xl font-bold uppercase py-4 px-6'> {symbol}</Text>
                 </Box>
-                <Text className='text-slate-200 text-4xl font-bold uppercase py-4'> {symbol}</Text>
-            </Box>
-            <Box className='text-slate-200 text-xl px-8 mt-4 gap-2'>
-                <Box horizontal>
-                    <Text>Name :
-                    </Text>
-                    <Text className='px-2 font-semibold'> {name}</Text>
+                <Box className='text-slate-200 text-xl px-8 mt-4 gap-2'>
+                    <Box horizontal>
+                        <Text>Name :
+                        </Text>
+                        <Text className='px-2 font-semibold'> {name}</Text>
+                    </Box>
+                    <Text>id : {id}</Text>
+                    <Text>Current Price : {current_price}</Text>
+                    <Text>Market Cap :<br/> {market_cap}</Text>
+                    <Text>Market Rank : {market_rank}</Text>
+                    <Text>Trading Volume :<br/> {total_volume}</Text>
+                    <Text>24hr High : {day_high}</Text>
+                    <Text>24hr Low : {day_low}</Text>
+                    <Text>Price Change :<br/> {price_change}</Text>
+                    <Text>Price Change % : {perc_price_change}</Text>
+                    <Text>Market Cap Change % :<br/> {day_market_cap_change}</Text>
                 </Box>
-                <Text>id : {id}</Text>
-                <Text>Current Price : {current_price}</Text>
-                <Text>Market Cap : {market_cap}</Text>
-                <Text>Market Rank : {market_rank}</Text>
-                <Text>Trading Volume : {total_volume}</Text>
-                <Text>24hr High : {day_high}</Text>
-                <Text>24hr Low : {day_low}</Text>
-                <Text>Price Change : {price_change}</Text>
-                <Text>Price Change % : {perc_price_change}</Text>
-                <Text>Market Cap Change % : {day_market_cap_change}</Text>
             </Box>
         </Box>
-    </Box>)
+    </Button>)
 }
 
 export default CoinDetails

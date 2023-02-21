@@ -7,15 +7,18 @@ type AssetData = {
     name: string
 }
 type NFTdata = {
+    id: string,
+    name: string,
     total_supply: number,
-    unique_addresses: number,
     /* Floor Price */
     usd_price: number,
     image: string
 }
 
+
 function TrendingNFts_ETH() {
     const [list_data, SetlistData] = useState < AssetData[] > ([])
+
     const get_ETH_NFTs = async () => {
         try {
             const resp = await axios.get(eth_nft_list);
@@ -23,7 +26,6 @@ function TrendingNFts_ETH() {
                 return {id: element.id, name: element.name}
             })
             SetlistData(nft_list);
-
         } catch (err) {
             console.error(err);
         }
