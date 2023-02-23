@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {useEffect, useState} from 'react'
-import {eth_nft_list} from '../assets/links'
+import {arbitrum_pos} from '../assets/links'
 type NFTdata = {
     id: string,
     name: string,
@@ -10,7 +10,7 @@ type NFTdata = {
 }
 const getNFTids = async () => {
     try {
-        const resp = await axios.get(eth_nft_list);
+        const resp = await axios.get(arbitrum_pos);
         const nft_list: string[] = resp.data.map((element : any) => element.id)
         return nft_list;
     } catch (err) {

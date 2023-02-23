@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Box, Text, Image, Button} from '../../../components/root/index'
 
 interface CoinDetail {
@@ -32,35 +32,24 @@ const CoinDetails = ({
     perc_price_change,
     day_market_cap_change
 } : CoinDetail) => {
-
-    const [expand, setExpand] = useState(false)
-
-    function checkExpand() {
-        setExpand(!expand)
-    }
-
-
-    return (<Button onClick={checkExpand}
-        className='text-left'>
+    return (
         <Box>
-            <Box className={
-                `bg-neutral-800 rounded-xl  py-4 w-[330px] ${
-                    expand ? '' : 'overflow-y-hidden h-[210px]'
-                }`
-            }>
+            <Box className='bg-neutral-800 rounded-xl py-4 w-[330px] h-[210px] overflow-hidden hover:h-full'>
                 <Box horizontal className='px-4 '>
                     <Box className='w-1/3 px-8'>
                         <Box className='w-16 rounded-full overflow-hidden'>
                             <Image src={image}/>
                         </Box>
                     </Box>
-                    <Text className='text-slate-200 text-2xl font-bold uppercase py-4 px-6'> {symbol}</Text>
+                    <Text className='text-slate-200 text-2xl font-bold uppercase py-4 px-6'>
+                        {symbol}</Text>
                 </Box>
                 <Box className='text-slate-200 text-xl px-8 mt-4 gap-2'>
                     <Box horizontal>
                         <Text>Name :
                         </Text>
-                        <Text className='px-2 font-semibold'> {name}</Text>
+                        <Text className='px-2 font-semibold'>
+                            {name}</Text>
                     </Box>
                     <Text>id : {id}</Text>
                     <Text>Current Price : {current_price}</Text>
@@ -75,7 +64,7 @@ const CoinDetails = ({
                 </Box>
             </Box>
         </Box>
-    </Button>)
+    )
 }
 
 export default CoinDetails

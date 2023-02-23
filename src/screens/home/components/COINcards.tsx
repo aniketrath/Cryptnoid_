@@ -9,7 +9,7 @@ interface TrendindCardProps {
 }
 
 const TrendingCards = ({name, price, symbol, thumbnail} : TrendindCardProps) => {
-    return (<Box horizontal className='bg-neutral-800 h-[180px] min-w-[330px] rounded-3xl'>
+    return (<Box horizontal className='bg-neutral-800 h-[180px] min-w-[350px] rounded-3xl'>
         <Box className='w-1/2 bg-zinc-700/20 min-h-full rounded-xl p-8'>
             <Box className='rounded-full overflow-hidden'>
                 <Image src={thumbnail}/>
