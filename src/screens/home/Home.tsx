@@ -9,12 +9,10 @@ const Home = () => {
     return (
         <Box>
             <Navbar/>
-            <Text className='text-zinc-300 text-3xl font-semibold px-8'>
-                    Market Data</Text>
-            <Box className='px-8'>
-                <MarketData/>
-            </Box>
             <Box className='mt-10 mx-2'>
+                <Text className='text-zinc-300 text-3xl font-semibold px-8'>
+                    Market Update:</Text>
+                <MarketData/>
                 <Text className='text-zinc-300 text-3xl font-semibold px-8'>
                     Trending</Text>
                 <Trending/>
